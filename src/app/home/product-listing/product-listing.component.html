@@ -1,0 +1,7 @@
+<div class="ui large segment inline" *ngFor="let myProduct of products">
+  <app-product-row
+    [product]="myProduct"
+    (click)='clicked(myProduct)'
+    [class.selected]="isSelected(myProduct)">
+  </app-product-row>
+</div>
