@@ -1,8 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {Product} from '../product-add/product.model';
 import {Http, Response} from '@angular/http';
-import 'rxjs/add/operator/map'
-import {Observable} from "rxjs/Observable";
+import 'rxjs/add/operator/map';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     this.product_url = product_url;
     this.results = this.search(product_url);
 
-    this.results.subscribe( results =>{
+    this.results.subscribe( results => {
       results.forEach( (product: Product ) => {
         this.products.push(product);
       });
@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
       console.log(response.json());
         return (<any>response.json()).map(item => {
           console.log('raw item', item); // uncomment if you want to debug
-               return new Product(item.title, item.category, item.desciption, item.price);
+               return new Product(item.id, item.title, item.category, item.desciption, item.price);
         });
       });
   }

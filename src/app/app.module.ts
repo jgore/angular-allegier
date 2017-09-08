@@ -9,10 +9,12 @@ import {ProductAddComponent} from './product-add/product-add.component';
 import {HomeComponent} from './home/home.component';
 import {ProductListingComponent} from './home/product-listing/product-listing.component';
 import {ProductRowComponent} from './home/product-listing/product-row/product-row.component';
+import { ProductDetailsComponent } from './home/product-listing/product-details/product-details.component';
 
 const routes: Routes = [
   // basic routes
   { path: '', component: HomeComponent },
+  { path: 'product/:id', component: ProductDetailsComponent },
   { path: 'product', component: ProductAddComponent },
   { path: 'contactus', redirectTo: 'contact' },
   ];
@@ -27,6 +29,7 @@ const PRODUCT_REST_URL: String = API_URL + '/rest/products/' ;
     HomeComponent,
     ProductListingComponent,
     ProductRowComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     BrowserModule,

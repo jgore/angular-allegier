@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Product} from '../../product-add/product.model';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-product-listing',
@@ -11,8 +12,13 @@ export class ProductListingComponent implements OnInit {
   @Output() onProductSelected: EventEmitter<Product>;
 
   private currentProduct: Product;
+  private id: String;
 
-  constructor() {
+  constructor(private route: ActivatedRoute) {
+    route.params.subscribe(params => {
+      this.id = params['id'];
+    });
+    console.log('id is ' + this.id);
     this.onProductSelected = new EventEmitter();
   }
 

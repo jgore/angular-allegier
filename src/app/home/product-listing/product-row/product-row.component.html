@@ -1,6 +1,6 @@
 <p>
   <label> title: </label>
-  {{product.title}}
+  <a [routerLink]="['product', product.id]"> {{product.title}} </a>
 </p>
 <p>
   <label> price: </label>{{product.price}}
